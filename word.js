@@ -5,12 +5,7 @@ var Word = function(word){
     this.wordLetters = word.split('').map(function(character){
         return new LetterJs(character);
     });
-    this.wordFunction = function(){
-        placeholder();
-    }
-    this.guessLetter = function(userGuess){//takes a character as an argument and calls the guess function on each letter object
-        guessFunction();
-    }
+    
 }
 
 Word.prototype.getAnswer = function(){
