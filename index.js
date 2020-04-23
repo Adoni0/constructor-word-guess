@@ -1,6 +1,6 @@
 const WordJs = require('./word.js');
 var inquirer = require('inquirer');
-var wordsArr = [];
+var wordsArr = ['Doom', 'Animal Crossing', 'Madden', 'Assassins Creed', 'God of War', 'Mario Kart'];
 
 inquirer.prompt([
     {

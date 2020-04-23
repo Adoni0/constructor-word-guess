@@ -20,10 +20,10 @@ Word.prototype.toString = function(){
 
 }
 
-Word.prototype.guessedLetter = function(userGuess){
+Word.prototype.guessedLetter = function(guess){
     var match = false;
     this.wordLetters.forEach(letter => {
-        if(letter.userGuess(userGuess)){
+        if(letter.userGuess(guess)){
             match = true;
         }
 
