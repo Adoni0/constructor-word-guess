@@ -1,6 +1,20 @@
 const WordJs = require('./word.js');
 var inquirer = require('inquirer');
 var wordsArr = ['Doom', 'Animal Crossing', 'Madden', 'Assassins Creed', 'God of War', 'Mario Kart'];
+var remainingGuesses = 10;
+
+var Logic = function(){
+  // Randomly selects a word and uses the Word constructor to store it
+  var randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+  WordJs(randomWord);
+  // Prompts the user for each guess and keeps track of the user's remaining guesses
+
+}
+
+
+
+
+
 
 inquirer.prompt([
     {
