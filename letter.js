@@ -1,13 +1,29 @@
-const letter = function(){
-    this.character = character,//string
-    this.letterGuessed = letterGuessed,//boolean
-    this.placeholder = function(){
-        //returns the underlying character if the letter has been guessed, 
-        //or a placeholder (like an underscore) if the letter has not been guessed
-    }
-    this.myFunction = function(){
-        //takes a character as an argument and checks it against the underlying character, 
-        //updating the stored boolean value to true if it was guessed correctly
 
+var Letter = function(character){
+    this.character = character,//string to store underlying character
+    this.isLetterGuessed = false//boolean stores whether the letter has been guessed yet
+    
+}
+
+Letter.prototype.toString = function(){
+    if(this.isLetterGuessed){
+        return this.character;
+    }else{
+        return '_';
     }
 }
+
+Letter.prototype.getAnswer = function(){
+    return this.character;
+}
+
+Letter.prototype.userGuess = function(guess){
+    if(guess == this.character){
+        this.isLetterGuessed = true;
+        return true;
+    }
+    return false;
+}
+
+module.exports = Letter;
+
