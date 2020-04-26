@@ -6,34 +6,28 @@ var remainingGuesses = 10;
 var Logic = function(){
   // Randomly selects a word and uses the Word constructor to store it
   var randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
-  WordJs(randomWord);
+  Word.wordLetters(randomWord);
   // Prompts the user for each guess and keeps track of the user's remaining guesses
+  var terminal = function(){
+    inquirer.prompt([{
+      name: 'guess',
+      message: 'Guess a letter!'
+    }]).then(function(answer){
+      if(answer.guess){
+        Word.acquireAnswer();
+      }
+      remainingGuesses--;
+      console.log('Remaining Guesses: ' + remainingGuesses);
+    })
+  }
+
+  var myFunction = function(){
+    if(isLetterGuessed){
+      console.log('Correct!');
+    }else{
+      console.log('Incorrect! Try again');
+    }
+  }
 
 }
 
-
-
-
-
-
-inquirer.prompt([
-    {
-      name: "name",
-      message: "What is your name?"
-    }, {
-      name: "position",
-      message: "What is your current position?"
-    }, {
-      name: "age",
-      message: "How old are you?"
-    }, {
-      name: "language",
-      message: "What is your favorite programming language?"
-    }
-  ]).then(function(answers) {
-    // initializes the variable newProgrammer to be a programmer object which will take
-    // in all of the user's answers to the questions above
-    var newProgrammer = new Programmer(answers.name, answers.position, answers.age, answers.language);
-    // printInfo method is run to show that the newProgrammer object was successfully created and filled
-    newProgrammer.printInfo();
-  });

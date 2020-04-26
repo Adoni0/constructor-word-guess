@@ -8,7 +8,7 @@ var Word = function(word){
     
 }
 
-Word.prototype.getAnswer = function(){
+Word.prototype.acquireAnswer = function(){
     return this.wordLetters.map(function(letter){
         return letter.getAnswer();
 
@@ -38,4 +38,5 @@ Word.prototype.guessedCorrect = function(){
     })
 }
 
-module.exports(Word);
+module.exports = Word;
+
