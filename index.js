@@ -3,19 +3,18 @@ var inquirer = require('inquirer');
 var wordsArr = ['Doom', 'Animal Crossing', 'Madden', 'Assassins Creed', 'God of War', 'Mario Kart'];
 var remainingGuesses = 10;
 
-var Logic = function(){
+var Logic = function(randomWord){
   // Randomly selects a word and uses the Word constructor to store it
-  var randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
-  Word.wordLetters(randomWord);
-  // Prompts the user for each guess and keeps track of the user's remaining guesses
+  this.randomWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+  WordJs(randomWord);
+}
+  
   var terminal = function(){
     inquirer.prompt([{
       name: 'guess',
       message: 'Guess a letter!'
     }]).then(function(answer){
-      if(answer.guess){
-        Word.acquireAnswer();
-      }
+      WordJs();
       remainingGuesses--;
       console.log('Remaining Guesses: ' + remainingGuesses);
     })
@@ -29,5 +28,6 @@ var Logic = function(){
     }
   }
 
-}
 
+
+Logic();
